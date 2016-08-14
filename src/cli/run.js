@@ -47,7 +47,8 @@ function createApp (source, object, routes, middlewares, argv) {
     logger: !argv.quiet,
     readOnly: argv.readOnly,
     noCors: argv.noCors,
-    noGzip: argv.noGzip
+    noGzip: argv.noGzip,
+    auth: argv.auth
   }
 
   if (argv.static) {

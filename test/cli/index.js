@@ -154,6 +154,18 @@ describe('cli', function () {
     })
   })
 
+  describe('db.json --auth "Basic user:pass"', function () {
+    beforeEach(function (done) {
+      child = cli([dbFile, '--auth', 'Basic user:pass'])
+      serverReady(PORT, done)
+    })
+
+    it('should enable authorization', function (done) {
+      request.get('/blog/posts')
+        .expect(401, done)
+    })
+  })
+
   describe('db.json -d 1000', function () {
     beforeEach(function (done) {
       child = cli([dbFile, '-d', 1000])

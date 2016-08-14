@@ -48,6 +48,10 @@ module.exports = function () {
         alias: 'ng',
         description: 'Disable GZIP Content-Encoding'
       },
+      auth: {
+        alias: 'a',
+        description: 'Enable authentication'
+      },
       snapshots: {
         alias: 'S',
         description: 'Set snapshots directory',

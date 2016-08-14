@@ -269,6 +269,21 @@ module.exports = function (req, res, next) {
 json-server db.json --middlewares middlewares.js
 ```
 
+### Authorization
+
+You can enable authorization with --auth option
+
+
+```bash
+json-server db.json --auth 'Token your-token'
+```
+
+When use basic auth, use raw user:pass not base64.
+
+```bash
+json-server db.json --auth 'Basic user:pass'
+```
+
 ### CLI usage
 
 ```
@@ -285,6 +300,7 @@ Options:
   --read-only, --ro  Allow only GET requests                           [boolean]
   --no-cors, --nc    Disable Cross-Origin Resource Sharing             [boolean]
   --no-gzip, --ng    Disable GZIP Content-Encoding                     [boolean]
+  --auth, -a         Enable authentication
   --snapshots, -S    Set snapshots directory                      [default: "."]
   --delay, -d        Add delay to responses (ms)
   --id, -i           Set database id property (e.g. _id)         [default: "id"]
