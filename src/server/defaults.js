@@ -6,6 +6,7 @@ var cors = require('cors')
 var compression = require('compression')
 var errorhandler = require('errorhandler')
 var objectAssign = require('object-assign')
+var auth = require('./auth')
 
 module.exports = function (opts) {
   var userDir = path.join(process.cwd(), 'public')
@@ -64,6 +65,11 @@ module.exports = function (opts) {
         res.sendStatus(403) // Forbidden
       }
     })
+  }
+
+  // authentication
+  if (opts.auth) {
+    arr.push(auth(opts.auth))
   }
 
   return arr
